@@ -5,7 +5,7 @@ import { GoogleGenAI, Type, GenerateContentResponse, Chat } from "@google/genai"
 import { UserProfile, SkillMapAnalysis, RoadmapData, SkillGapData, ResumeAnalysisResult, ProjectIdea, NetworkingData, Quest, FutureProofScoreData, SkillEvolutionData, PitchAnalysisResult, LearningHubData, Message, InterviewReport, CoverLetterResult, InterviewQuestion, CandidateScreeningResult, JobDescriptionResult, MarketInsightsResult, MarketInsightsData, AsyncInterviewAnalysisResult, OnboardingPlan } from "../types";
 
 const getAIClient = (): GoogleGenAI => {
-    const apiKey = localStorage.getItem('geminiApiKey');
+    const apiKey = localStorage.getItem('geminiApiKey') || process.env.GEMINI_API_KEY || process.env.API_KEY;
     if (!apiKey) {
         throw new Error("Gemini API key is missing. Please set it in the app settings.");
     }

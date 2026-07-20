@@ -86,7 +86,7 @@ const ResumeAnalyzer: React.FC<ResumeAnalyzerProps> = ({ setView }) => {
             const data = await analyzeResume(resumeText, jobDescription);
             setResult(data);
         } catch (err) {
-            setError('Failed to analyze resume. Please try again.');
+            setError(`Failed to analyze: ${err instanceof Error ? err.message : String(err)}`);
             console.error(err);
         } finally {
             setLoading(false);

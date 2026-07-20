@@ -86,7 +86,12 @@ const ResumeAnalyzer: React.FC<ResumeAnalyzerProps> = ({ setView }) => {
             const data = await analyzeResume(resumeText, jobDescription);
             setResult(data);
         } catch (err) {
-            setError(`Failed to analyze: ${err instanceof Error ? err.message : String(err)}`);
+            const errorMsg = err instanceof Error ? err.message : String(err);
+            if (errorMsg.includes('429') || errorMsg.includes('Quota') || errorMsg.includes('RESOURCE_EXHAUSTED')) {
+                setError('API Quota Exceeded. Please check your Gemini API key billing details, or go to Profile -> Update API Key to use a different key.');
+            } else {
+                setError(`Failed to analyze: ${errorMsg}`);
+            }
             console.error(err);
         } finally {
             setLoading(false);

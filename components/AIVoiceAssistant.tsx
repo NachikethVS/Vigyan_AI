@@ -189,7 +189,7 @@ const AIVoiceAssistant: React.FC<{ setView: (view: View) => void }> = ({ setView
             }
 
             sessionPromiseRef.current = aiRef.current.live.connect({
-                model: 'gemini-2.0-flash-native-audio-preview-09-2025',
+                model: 'gemini-2.0-flash-exp',
                 callbacks: {
                     onopen: () => {
                         if (!streamRef.current || !inputAudioContextRef.current) return;

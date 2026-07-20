@@ -228,11 +228,7 @@ const ApiKeyPrompt: React.FC<{ onKeySet: () => void }> = ({ onKeySet }) => {
 const App: React.FC = () => {
     const [currentUser, setCurrentUser] = useState<string | null>(null);
     const [isLoading, setIsLoading] = useState(true);
-    const [hasApiKey, setHasApiKey] = useState<boolean>(
-        !!localStorage.getItem('geminiApiKey') || 
-        !!process.env.GEMINI_API_KEY || 
-        !!process.env.API_KEY
-    );
+    const [hasApiKey, setHasApiKey] = useState<boolean>(!!localStorage.getItem('geminiApiKey'));
 
     useEffect(() => {
         // Check session storage for a logged-in user when the app loads.

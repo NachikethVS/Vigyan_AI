@@ -79,7 +79,7 @@ export const generateCareerRoadmap = async (profile: UserProfile): Promise<Roadm
     Structure the output as a JSON object.`;
 
     const response = await getAIClient().models.generateContent({
-        model: "gemini-2.5-flash",
+        model: "gemini-2.0-flash",
         contents: prompt,
         config: {
             responseMimeType: "application/json",
@@ -116,7 +116,7 @@ export const analyzeSkillGap = async (currentSkills: string[], desiredRole: stri
     Structure the output as a JSON object.`;
 
     const response = await getAIClient().models.generateContent({
-        model: "gemini-2.5-flash",
+        model: "gemini-2.0-flash",
         contents: prompt,
         config: {
             responseMimeType: "application/json",
@@ -160,7 +160,7 @@ export const analyzeResume = async (resumeText: string, jobDescription?: string)
     Structure the output as a single JSON object.`;
 
     const response = await getAIClient().models.generateContent({
-        model: "gemini-2.5-flash",
+        model: "gemini-2.0-flash",
         contents: prompt,
         config: {
             responseMimeType: "application/json",
@@ -197,7 +197,7 @@ export const generateProjectIdeas = async (profile: UserProfile): Promise<Projec
     Structure the output as a JSON object.`;
 
     const response = await getAIClient().models.generateContent({
-        model: "gemini-2.5-flash",
+        model: "gemini-2.0-flash",
         contents: prompt,
         config: {
             responseMimeType: "application/json",
@@ -227,7 +227,7 @@ export const getNetworkingRecommendations = async (profile: UserProfile): Promis
     Structure the output as a JSON object.`;
 
     const response = await getAIClient().models.generateContent({
-        model: "gemini-2.5-flash",
+        model: "gemini-2.0-flash",
         contents: prompt,
         config: {
             responseMimeType: "application/json",
@@ -257,7 +257,7 @@ export const getNetworkingRecommendations = async (profile: UserProfile): Promis
 
 export const createInterviewChat = (jobRole: string): Chat => {
     return getAIClient().chats.create({
-        model: 'gemini-2.5-flash',
+        model: 'gemini-2.0-flash',
         config: {
             systemInstruction: `You are an expert interviewer conducting a mock interview for a ${jobRole} position. Ask relevant technical and behavioral questions one by one. After each user answer, provide brief, constructive feedback before asking the next question. Start the interview now with your first question.`
         },
@@ -285,7 +285,7 @@ export const generateInterviewReport = async (messages: Message[], jobRole: stri
     Structure the output as a single, valid JSON object.`;
 
     const response = await getAIClient().models.generateContent({
-        model: "gemini-2.5-flash",
+        model: "gemini-2.0-flash",
         contents: prompt,
         config: {
             responseMimeType: "application/json",
@@ -351,7 +351,7 @@ export const generateCareerQuests = async (profile: UserProfile, skill?: string)
     Structure the output as a JSON array of objects.`;
 
     const response = await getAIClient().models.generateContent({
-        model: "gemini-2.5-flash",
+        model: "gemini-2.0-flash",
         contents: prompt,
         config: {
             responseMimeType: "application/json",
@@ -399,7 +399,7 @@ export const generateCompanySkillMap = async (profile: UserProfile, companyName:
     }`;
 
     const response = await getAIClient().models.generateContent({
-        model: "gemini-2.5-flash",
+        model: "gemini-2.0-flash",
         contents: prompt,
         config: {
             tools: [{ googleSearch: {} }],
@@ -433,7 +433,7 @@ export const getFutureProofScore = async (profile: UserProfile): Promise<FutureP
     Structure the output as a single JSON object.`;
 
     const response = await getAIClient().models.generateContent({
-        model: "gemini-2.5-flash",
+        model: "gemini-2.0-flash",
         contents: prompt,
         config: {
             responseMimeType: "application/json",
@@ -464,7 +464,7 @@ export const generateCareerSuggestions = async (profile: UserProfile): Promise<s
     Return the suggestions as a JSON object with a single key "suggestions" containing an array of strings.`;
 
     const response = await getAIClient().models.generateContent({
-        model: "gemini-2.5-flash",
+        model: "gemini-2.0-flash",
         contents: prompt,
         config: {
             responseMimeType: "application/json",
@@ -496,7 +496,7 @@ export const generateSkillEvolutionTimeline = async (profile: UserProfile): Prom
     Structure the output as a JSON array of objects.`;
 
     const response = await getAIClient().models.generateContent({
-        model: "gemini-2.5-flash",
+        model: "gemini-2.0-flash",
         contents: prompt,
         config: {
             responseMimeType: "application/json",
@@ -542,7 +542,7 @@ export const analyzePitchVideo = async (videoBase64: string, mimeType: string): 
     };
 
     const response = await getAIClient().models.generateContent({
-        model: "gemini-2.5-flash",
+        model: "gemini-2.0-flash",
         contents: { parts: [videoPart, { text: prompt }] },
     });
 
@@ -580,7 +580,7 @@ export const getLearningResources = async (profile: UserProfile, skill: string):
     }`;
 
     const response = await getAIClient().models.generateContent({
-        model: "gemini-2.5-flash",
+        model: "gemini-2.0-flash",
         contents: prompt,
         config: {
             tools: [{ googleSearch: {} }],
@@ -621,7 +621,7 @@ export const generateCoverLetter = async (profile: UserProfile, resumeText: stri
     Structure the output as a single, valid JSON object.`;
 
     const response = await getAIClient().models.generateContent({
-        model: "gemini-2.5-flash",
+        model: "gemini-2.0-flash",
         contents: prompt,
         config: {
             responseMimeType: "application/json",
@@ -662,7 +662,7 @@ export const generateInterviewQuestions = async (jobRole: string, questionType: 
     Structure the output as a JSON array of objects.`;
 
     const response = await getAIClient().models.generateContent({
-        model: "gemini-2.5-flash",
+        model: "gemini-2.0-flash",
         contents: prompt,
         config: {
             responseMimeType: "application/json",
@@ -705,7 +705,7 @@ export const screenCandidateResume = async (resumeText: string, jobDescription: 
     Structure the output as a single, valid JSON object.`;
 
     const response = await getAIClient().models.generateContent({
-        model: "gemini-2.5-flash",
+        model: "gemini-2.0-flash",
         contents: prompt,
         config: {
             responseMimeType: "application/json",
@@ -741,7 +741,7 @@ export const generateJobDescription = async (title: string, keyPoints: string, t
     Structure the output as a single, valid JSON object.`;
 
     const response = await getAIClient().models.generateContent({
-        model: "gemini-2.5-flash",
+        model: "gemini-2.0-flash",
         contents: prompt,
         config: {
             responseMimeType: "application/json",
@@ -769,7 +769,7 @@ export const getMarketInsights = async (jobTitle: string, location: string): Pro
     Respond ONLY with a single, valid JSON object with the keys "salaryRange", "inDemandSkills", "hiringDifficulty", and "marketSummary". Do not include any text, markdown formatting, or explanations before or after the JSON object.`;
 
     const response = await getAIClient().models.generateContent({
-        model: "gemini-2.5-flash",
+        model: "gemini-2.0-flash",
         contents: prompt,
         config: {
             tools: [{ googleSearch: {} }],
@@ -807,7 +807,7 @@ export const analyzeVideoInterview = async (videoBase64: string, mimeType: strin
     };
 
     const response = await getAIClient().models.generateContent({
-        model: "gemini-2.5-flash",
+        model: "gemini-2.0-flash",
         contents: { parts: [videoPart, { text: prompt }] },
         config: {
             responseMimeType: "application/json",
@@ -849,7 +849,7 @@ export const generateOnboardingPlan = async (role: string, companyName: string):
     Structure the output as a single, valid JSON object.`;
 
     const response = await getAIClient().models.generateContent({
-        model: "gemini-2.5-flash",
+        model: "gemini-2.0-flash",
         contents: prompt,
         config: {
             responseMimeType: "application/json",
